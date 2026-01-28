@@ -10,6 +10,7 @@ interface Resume {
   companyName?: string;
   jobTitle?: string;
   imagePath: string;
+  imageUrl?: string; // Optional blob URL for displaying images
   resumePath: string;
   feedback: Feedback;
 }

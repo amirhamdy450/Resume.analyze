@@ -3,7 +3,7 @@ import { Link, Links } from "react-router";
 import ScoreCircle from "./ScoreCircle";
 
 const ResumeCard = ({
-  resume: { id, companyName, jobTitle, feedback, imagePath },
+  resume: { id, companyName, jobTitle, feedback, imageUrl, imagePath },
 }: {
   resume: Resume;
 }) => {
@@ -25,11 +25,17 @@ const ResumeCard = ({
 
       <div className="gradient-border animate-in fade-in duration-1000">
         <div className="w-full h-full">
-          <img
-            src={imagePath}
-            alt="resume"
-            className="w-full h-[350px] max-sm:h-[200px] object-cover object-top"
-          />
+          {imageUrl ? (
+            <img
+              src={imageUrl}
+              alt="resume"
+              className="w-full h-[350px] max-sm:h-[200px] object-cover object-top"
+            />
+          ) : (
+            <div className="w-full h-[350px] max-sm:h-[200px] bg-gray-200 flex items-center justify-center">
+              <p className="text-gray-500">Loading preview...</p>
+            </div>
+          )}
         </div>
       </div>
     </Link>
